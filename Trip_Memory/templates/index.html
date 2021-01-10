@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to Your Trip Memory! {% endblock %}</h1>
+    {% for post in posts %}
+      <a href="{{url_for('post', username=post['user'], id=post['id'])}}">
+        <!-- here url_for function, 1st post is the post() view function, since the function accepts a post_id as argument,
+      you give it the value of post['id'], then this url_for function will return the proper URL for each post based on the ID -->
+        <h2>{{post['title']}}</h2>
+      </a>
+
+      <span class="badge bage-primary">{{post["Created"]}}</span>
+      <a href="{{url_for('edit',id=post['id'])}}">
+        <span class="badge badge-warning">Edit</span>
+      </a>
+      <hr>
+    {% endfor %}
+{% endblock %}
