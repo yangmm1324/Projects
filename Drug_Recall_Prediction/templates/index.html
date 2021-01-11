@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+  background-color: powderblue;;
+  style: white;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 15px 15px;
+  height: 500px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.header{
+  text-align: center;
+  color:#454545;
+}
+
+.row{
+  color:#454545;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h2>Test the Recall Risk for Your Drugs</h2>
+</div>
+<div class="row">
+  <form action="{{url_for('success')}}" method="POST">
+  <div class="column">
+    <h2>Drug Properties</h2>
+      <label for="MW">Molecular Weight</label> <br>
+      <input type="number" step='any' name="MW" placeholder='Please enter the molecular weight'>
+      <br>
+      <br>
+
+      <label for="logs">Log of Drug Solubility</label> <br>
+      <input type="number" step='any' name="logs" placeholder='Please enter the LogS'>
+      <br>
+      <br>
+
+      <label for="logp">LogP</label> <br>
+      <input type="number" step='any' name="logp" placeholder='Please enter the LogP'>
+      <br>
+      <br>
+
+      <label for="logd">LogD</label> <br>
+      <input type="number" step='any' name="logd" placeholder='Please enter the LogD'>
+      <br>
+      <br>
+
+      <label for="hba">Hydrogen Bond Acceptor</label> <br>
+      <input type="number" step='any' name="hba" placeholder='Please enter the HBA'>
+      <br>
+      <br>
+
+      <label for="hbd">Hydrogen Bond Donor</label> <br>
+      <input type="number" step='any' name="hbd" placeholder='Please enter the HBD'>
+      <br>
+      <br>
+
+      <label for="psa">Polar Surface Area</label> <br>
+      <input type="number" step='any' name="psa" placeholder='Please enter the PSA'>
+      <br>
+      <br>
+
+  </div>
+  <div class="column">
+    <h2>Drug Form</h2>
+    <label for="dosage">Dosage Form</label><br>
+    <select name="dosage" id="dosage">
+      <option value="tablet">Tablet</option>
+      <option value="capsule">Capsule</option>
+      <option value="solution">Solution</option>
+      <option value="suspension">Suspension</option>
+    </select>
+    <br>
+    <br>
+    <label for="release">Release Characteristic</label><br>
+    <select name="release" id="release">
+      <option value="IR">Immediate Release</option>
+      <option value="DR">Delayed Release</option>
+      <option value="ER">Extended Release</option>
+    </select>
+    <br>
+    <br>
+
+    <label for="route">Route of Administration</label><br>
+    <select name="route" id="route">
+      <option value="oral">Oral</option>
+      <option value="intramuscular">Intramuscular</option>
+      <option value="intravenous">Intravenous</option>
+      <option value="inhalation">Inhalation</option>
+      <option value="topical">Topical</option>
+      <option value="ophthalmic">Ophthalmic</option>
+      <option value="transdermal">Transdermal</option>
+    </select>
+    <br>
+    <br>
+
+    <label >Dosage Strength</label><br>
+    <input type="number" step='any' name="strength" placeholder="Please enter the dosage strength in mg/ml, mg/mg">
+  </div>
+  <div class="column">
+    <h2>Drug Formulation</h2>
+    <label for="total_excipients">Number of Total Excipients</label><br>
+    <input type="number" name="total_excipients" placeholder='Please enter the total number of excipients'><br><br>
+    <label for="excipient">Select the Excipients</label><br>
+    <select name="excipient" id="excipient" multiple>
+      <option value="UNII: 70097M6I30">UNII: 70097M6I30</option>
+      <option value="UNII: 059QF0KO0R">UNII: 059QF0KO0R</option>
+      <option value="UNII: OP1R32D61U">UNII: OP1R32D61U</option>
+      <option value="UNII: 15FIX9V2JP">UNII: 15FIX9V2JP</option>
+      <option value="UNII: ETJ7Z6XBU4">UNII: ETJ7Z6XBU4</option>
+      <option value="UNII: O8232NY3SJ">UNII: O8232NY3SJ</option>
+      <option value="UNII: 55X04QC32I">UNII: 55X04QC32I</option>
+      <option value="UNII: 7SEV7J4R1U">UNII: 7SEV7J4R1U</option>
+      <option value="UNII: 3NXW29V3WO">UNII: 3NXW29V3WO</option>
+      <option value="UNII: EWQ57Q8I5X">UNII: EWQ57Q8I5X</option>
+      <option value="UNII: 6DC9Q167V3">UNII: 6DC9Q167V3</option>
+      <option value="UNII: QTT17582CB">UNII: QTT17582CB</option>
+      <option value="UNII: 3WJQ0SDW1A">UNII: 3WJQ0SDW1A</option>
+      <option value="UNII: 451W47IQ8X">UNII: 451W47IQ8X</option>
+      <option value="UNII: EX438O2MRT">UNII: EX438O2MRT</option>
+      <option value="UNII: XM0M87F357">UNII: XM0M87F357</option>
+      <option value="UNII: C151H8M554">UNII: C151H8M554</option>
+      <option value="UNII: 368GB5141J">UNII: 368GB5141J</option>
+      <option value="UNII: M28OL1HH48">UNII: M28OL1HH48</option>
+      <option value="UNII: 2G86QN327L">UNII: 2G86QN327L</option>
+      <option value="UNII: PDC6A3C0OX">UNII: PDC6A3C0OX</option>
+      <option value="UNII: 1K09F3G675">UNII: 1K09F3G675</option>
+
+      <option value="UNII: H3R47K3TBD">UNII: H3R47K3TBD</option>
+      <option value="UNII: 35SW5USQ3G">UNII: 35SW5USQ3G</option>
+      <option value="UNII: FZ989GH94E">UNII: FZ989GH94E</option>
+      <option value="UNII: L06K8R7DQK">UNII: L06K8R7DQK</option>
+      <option value="UNII: WZB9127XOA">UNII: WZB9127XOA</option>
+      <option value="UNII: 5856J3G2A2">UNII: 5856J3G2A2</option>
+      <option value="UNII: M28OL1HH48">UNII: 3OWL53L36A</option>
+      <option value="UNII: OJ245FE5EU">UNII: OJ245FE5EU</option>
+      <option value="UNII: 3SY5LH9PMK">UNII: 3SY5LH9PMK</option>
+      <option value="UNII: 6OZP39ZG8H">UNII: 6OZP39ZG8H</option>
+
+      <option value="UNII: 46N107B71O">UNII: 46N107B71O</option>
+      <option value="UNII: 3K9958V90M">UNII: 3K9958V90M</option>
+      <option value="UNII: RFW2ET671P">UNII: RFW2ET671P</option>
+      <option value="UNII: A2I8C7HI9T">UNII: A2I8C7HI9T</option>
+      <option value="UNII: XF417D3PSL">UNII: XF417D3PSL</option>
+      <option value="UNII: 68401960MK">UNII: 68401960MK</option>
+      <option value="UNII: 4ELV7Z65AP">UNII: 4ELV7Z65AP</option>
+      <option value="UNII: 2968PHW8QP">UNII: 2968PHW8QP</option>
+      <option value="UNII: Z8IX2SC1OH">UNII: Z8IX2SC1OH</option>
+      <option value="UNII: 7FLD91C86K">UNII: 7FLD91C86K</option>
+
+      <option value="UNII: 506T60A25R">UNII: 506T60A25R</option>
+      <option value="UNII: B697894SGQ">UNII: B697894SGQ</option>
+
+
+    </select>
+    <br>
+    <br>
+  </div>
+  <div class="column">
+    <h2>Market Type</h2>
+
+          <label for="market">Market Type</label>
+          <select name="market" id="market">
+            <option value="nda">NDA</option>
+            <option value="anda">ANDA</option>
+            <option value="authorized">NDA authorized generics</option>
+            <option value="otc">OTC</option>
+          </select>
+          <br>
+          <br>
+  </div>
+      <div class="header">
+        <button type='sumbit' name="Submit">Submit</button>
+      </div>
+    </form>
+</div>
+
+</body>
+</html>
